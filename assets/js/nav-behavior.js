@@ -2,18 +2,18 @@
   function syncActiveLinks(nav) {
     var pathname = window.location.pathname || "/";
     var routeGroups = [
-      { match: ["/", "/index.html", "/home-pages/home-v3", "/home-pages/home-v1"], href: "/home-pages/home-v3" },
-      { match: ["/about", "/company-pages/about"], href: "/company-pages/about" },
-      { match: ["/services", "/services-v1", "/services-pages/services-v1"], href: "/services-pages/services-v1" },
-      { match: ["/contact", "/company-pages/contact"], href: "/company-pages/contact" },
+      { match: ["/", "/home", "/index.html", "/home.html"], href: "/home" },
+      { match: ["/about", "/about.html"], href: "/about" },
+      { match: ["/services", "/services.html"], href: "/services" },
+      { match: ["/contact", "/contact.html"], href: "/contact" },
       {
         match: [
+          "/book-an-appoinment",
+          "/book-an-appoinment.html",
           "/book-an-appointment",
-          "/book-an-appointment-v1",
-          "/booking-pages/book-an-appoinment-v1",
-          "/booking-pages/book-an-appointment-v1",
+          "/book-an-appointment.html",
         ],
-        href: "/booking-pages/book-an-appoinment-v1",
+        href: "/book-an-appoinment",
       },
     ];
 

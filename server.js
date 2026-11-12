@@ -56,9 +56,30 @@ function resolveFilePath(urlPath) {
   return null;
 }
 
+const REDIRECTS = {
+  '/home-pages/home-v3': '/home',
+  '/home-pages/home-v1': '/home',
+  '/company-pages/about': '/about',
+  '/services-pages/services-v1': '/services',
+  '/services-pages/services-v3': '/services',
+  '/services-v1': '/services',
+  '/company-pages/contact': '/contact',
+  '/booking-pages/book-an-appoinment-v1': '/book-an-appoinment',
+  '/booking-pages/book-an-appointment-v1': '/book-an-appoinment',
+  '/book-an-appointment-v1': '/book-an-appoinment',
+  '/terms-and-conditions': '/terms',
+  '/privacy-policy': '/privacy',
+};
+
 const server = http.createServer(async (req, res) => {
   const rawUrl = req.url || '/';
-  const pathname = rawUrl.split('?')[0];
+  const pathname = rawUrl.split('?')[0].replace(/\/+$/, '') || '/';
+
+  if (REDIRECTS[pathname]) {
+    res.writeHead(301, { Location: REDIRECTS[pathname] });
+    res.end();
+    return;
+  }
 
   if (pathname === '/api/instagram') {
     try {
