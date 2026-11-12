@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/home-pages/home-v3", "destination": "/home-pages/home-v3.html" },
+    { "source": "/company-pages/about", "destination": "/company-pages/about.html" },
+    { "source": "/services-pages/services-v1", "destination": "/services-pages/services-v1.html" },
+    { "source": "/company-pages/contact", "destination": "/company-pages/contact.html" },
+    { "source": "/booking-pages/book-an-appoinment-v1", "destination": "/booking-pages/book-an-appoinment-v1.html" },
+    { "source": "/booking-pages/book-an-appointment-v1", "destination": "/booking-pages/book-an-appointment-v1.html" }
+  ]
+}
+

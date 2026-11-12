@@ -1,0 +1,12 @@
+{
+  "name": "wagging-with-gg",
+  "version": "1.0.0",
+  "description": "Wagging With GG website recreated from Pawcare Webflow Template",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "private": true
+}
+
