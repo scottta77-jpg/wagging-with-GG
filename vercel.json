@@ -1,13 +1,25 @@
 {
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    { "source": "/api/instagram", "destination": "/api/instagram.js" },
     { "source": "/", "destination": "/index.html" },
     { "source": "/home-pages/home-v3", "destination": "/home-pages/home-v3.html" },
+    { "source": "/about", "destination": "/about.html" },
     { "source": "/company-pages/about", "destination": "/company-pages/about.html" },
+    { "source": "/services", "destination": "/services.html" },
     { "source": "/services-pages/services-v1", "destination": "/services-pages/services-v1.html" },
+    { "source": "/contact", "destination": "/contact.html" },
     { "source": "/company-pages/contact", "destination": "/company-pages/contact.html" },
+    { "source": "/book-an-appointment", "destination": "/book-an-appointment.html" },
     { "source": "/booking-pages/book-an-appoinment-v1", "destination": "/booking-pages/book-an-appoinment-v1.html" },
-    { "source": "/booking-pages/book-an-appointment-v1", "destination": "/booking-pages/book-an-appointment-v1.html" }
+    { "source": "/booking-pages/book-an-appointment-v1", "destination": "/booking-pages/book-an-appointment-v1.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" }
   ]
 }
-

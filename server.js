@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { getInstagramFeed } = require('./lib/instagram');
 
 const PORT = process.env.PORT || 4000;
 const ROOT = __dirname;
@@ -55,8 +56,28 @@ function resolveFilePath(urlPath) {
   return null;
 }
 
-const server = http.createServer((req, res) => {
-  const filePath = resolveFilePath(req.url || '/');
+const server = http.createServer(async (req, res) => {
+  const rawUrl = req.url || '/';
+  const pathname = rawUrl.split('?')[0];
+
+  if (pathname === '/api/instagram') {
+    try {
+      const forceRefresh = rawUrl.includes('refresh=1');
+      const payload = await getInstagramFeed({ forceRefresh });
+      const body = JSON.stringify(payload);
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache',
+      });
+      res.end(body);
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  const filePath = resolveFilePath(rawUrl);
 
   if (filePath) {
     const ext = path.extname(filePath).toLowerCase();
